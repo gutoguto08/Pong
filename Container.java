@@ -1,5 +1,6 @@
 package com.mycompany.pong;
 
-public class Contents {
+public class Contents extends JPanel {
+	
 	
 }
