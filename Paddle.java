@@ -1,24 +1,40 @@
 package com.mycompany.pong;
-import java.awt.Color;
-import java.awt.Graphics;
-import javax.swing.JPanel;
 
-public class Paddle extends JPanel {
+public class Paddle {
 	
-	private static final int WIDTH = Game.WIDTH/10, HEIGHT = Game.HEIGHT/25;
-	private static final int MAX_VELOCITY = 5;
-	private int velocityX = 0, velocityY = 0;
+	private int x, y, xV, yV;
+	public static final int WIDTH = Game.WIDTH/3, HEIGHT = Game.HEIGHT/25;
 	
-	@Override
-	public void paintComponent(Graphics g) {
-		super.paintComponent(g);
-		
-		g.setColor(Color.black);
-		g.fillRect(100, 100, WIDTH, HEIGHT);
+	public Paddle(int x, int y) {
+		this.x = x;
+		this.y = y;
 	}
 	
-	public Paddle () {
-		super.setDoubleBuffered(true);
-		super.setBounds(0, 0, Game.WIDTH, Game.HEIGHT);
+	public Paddle() {
+		x = 0; y = 0;
+	}
+	
+	public int getX() {
+		return x;
+	}
+	
+	public int getY() {
+		return y;
+	}
+	
+	public int getXVelocity() {
+		return xV;
+	}
+	
+	public int getYVelocity() {
+		return yV;
+	}
+	
+	public void setX(int x) {
+		this.x = x;
+	}
+	
+	public void setY(int y) {
+		this.y = y;
 	}
 }

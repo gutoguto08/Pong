@@ -1,28 +1,40 @@
 package com.mycompany.pong;
 
+import java.awt.Dimension;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import javax.swing.JFrame;
 
-public class Window {
+public class Window implements ActionListener {
 	
 	private final JFrame frame = new JFrame();
-	private static final Ball ball = new Ball();
-	private static final Paddle paddle1 = new Paddle(),  paddle2 = new Paddle();
+	private static final Contents container = new Contents();
 	
 	public Window (int width, int height) {
 		frame.setTitle("Pong Game");
+		frame.getContentPane().setPreferredSize(new Dimension(width, height));
+		frame.pack();
+		frame.setLocationRelativeTo(null);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.setSize(width, height);
-		frame.setResizable(false);
+		//frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
+		//frame.setSize(width, height);
+		frame.setResizable(true);
 		frame.setLayout(null);
 		frame.setVisible(true);
 		
+		container.setNumberOfPlayersPlaying(2);
+		container.setCoordinates();
+		container.setPaddles();
 		
-		frame.add(ball);
-		frame.add(paddle1);
-		frame.add(paddle2);
+		frame.add(container);
 	}
 	
 	public void update() {
 		frame.repaint();
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent ae) {
+		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
 	}
 }

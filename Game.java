@@ -9,7 +9,7 @@ public class Game implements Runnable {
 	Window window;
 	private boolean running = false;
 	private final double UPDATE_CAP = 1.0/60.0;
-	public static final int WIDTH = 400, HEIGHT = 400;
+	public static final int WIDTH = 500, HEIGHT = 500;
 	
 	enum Level {
 		EASY,
@@ -26,7 +26,7 @@ public class Game implements Runnable {
 		window = new Window(WIDTH, HEIGHT);
 		
 		thread = new Thread(this);
-		thread.run();
+		thread.start();
 	}
 	
 	@Override
