@@ -6,8 +6,8 @@ import javax.swing.JPanel;
 
 public class Contents extends JPanel {
 	
-	private static final int MAX_PLAYERS = 4;
-	private int playersPlaying = 2;
+	private static final int MAX_PLAYERS = 4, DEFAULT_PLAYERS = 2;
+	private int playersPlaying;
 	
 	private final int[][] paddleCoordinates = new int[MAX_PLAYERS][2];
 	
@@ -65,10 +65,15 @@ public class Contents extends JPanel {
 	}
 	
 	public void setNumberOfPlayersPlaying(int n) {
+		if (n>MAX_PLAYERS)
+		this.playersPlaying = MAX_PLAYERS;
+		else
 		this.playersPlaying = n;
 	}
 			
 	public Contents () {
+		playersPlaying = DEFAULT_PLAYERS;
+		
 		for (int i = 0; i < paddles.length; ++i)
 		paddles[i] = new Paddle();
 		

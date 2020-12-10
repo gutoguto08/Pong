@@ -22,11 +22,14 @@ public class Window implements ActionListener {
 		frame.setLayout(null);
 		frame.setVisible(true);
 		
-		container.setNumberOfPlayersPlaying(2);
+		container.setNumberOfPlayersPlaying(4);
 		container.setCoordinates();
 		container.setPaddles();
 		
 		frame.add(container);
+		
+		
+		System.out.println(frame.getSize());
 	}
 	
 	public void update() {
